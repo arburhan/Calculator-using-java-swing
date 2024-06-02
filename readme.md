@@ -1,7 +1,8 @@
 **Title:** GUI based calculator with exception handling mechanism.
 
-**Output**
+**Output:**
 
+![alt text](image.png)
 
 **Introduction:**
 The Simple Calculator project is a Java Swing-based desktop application designed to perform 
