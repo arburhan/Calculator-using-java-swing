@@ -2,9 +2,10 @@
 
 **Output:**
 
-![alt text](image.png)
+![calculator using java swing](image.png)
 
 **Introduction:**
+</br>
 The Simple Calculator project is a Java Swing-based desktop application designed to perform 
 basic arithmetic operations with a user-friendly interface. It includes buttons for digits (0-9), 
 operations (addition, subtraction, multiplication, division, modulus, square root), and special 
@@ -15,6 +16,7 @@ exceptions gracefully, providing informative error messages to the user. This pr
 exemplifies effective GUI development in Java, combining functionality and usability.
 
 **Limitations:**
+</br>
 The Simple Calculator has several limitations. It can only handle basic arithmetic operations 
 and does not support advanced mathematical functions like trigonometry or logarithms. The 
 input format must be strictly adhered to, as the calculator does not parse complex expressions 
