@@ -23,7 +23,7 @@ public class Calculator extends JFrame {
         btnClr.setBackground(Color.RED);
         panel.add(btnClr);
 
-        btnBspc = new JButton("->Back");
+        btnBspc = new JButton("\u232B");
         btnBspc.setBounds(280, 50, 70, 50);
         btnBspc.setBackground(Color.YELLOW);
         panel.add(btnBspc);
@@ -80,11 +80,11 @@ public class Calculator extends JFrame {
         btn0.setBounds(10, 290, 70, 50);
         panel.add(btn0);
 
-        btnMod = new JButton("mod");
+        btnMod = new JButton("%");
         btnMod.setBounds(100, 290, 70, 50);
         panel.add(btnMod);
 
-        btnsQrt = new JButton("sqrt");
+        btnsQrt = new JButton("\u221A");
         btnsQrt.setBounds(190, 290, 70, 50);
         panel.add(btnsQrt);
 
@@ -101,12 +101,15 @@ public class Calculator extends JFrame {
         btnEql.setBackground(Color.GREEN);
         panel.add(btnEql);
 
-        setVisible(true);
-
         display = new JTextField();
-        display.setBounds(10, 10, 340, 30);
+        display.setBounds(10, 10, 340, 35);
+        display.setBackground(Color.LIGHT_GRAY);
+        display.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        display.setFont(new Font("Arial", Font.PLAIN, 18));
         display.setEditable(false);
         panel.add(display);
+
+        setVisible(true);
 
         ActionListener buttonClickListener = new ActionListener() {
             @Override
@@ -114,7 +117,7 @@ public class Calculator extends JFrame {
                 String command = e.getActionCommand();
                 if ("Clear".equals(command)) {
                     display.setText("");
-                } else if ("->Back".equals(command)) {
+                } else if ("\u232B".equals(command)) {
                     String currentText = display.getText();
                     if (currentText.length() > 0) {
                         display.setText(currentText.substring(0, currentText.length() - 1));
@@ -165,9 +168,8 @@ public class Calculator extends JFrame {
     }
 
     private double evaluateExpression(String expression) {
-        // Handle sqrt separately as it is a unary operator
-        if (expression.contains("sqrt")) {
-            String[] parts = expression.split("sqrt");
+        if (expression.contains("\u221A")) {
+            String[] parts = expression.split("\u221A");
             double num = Double.parseDouble(parts[1]);
             return Math.sqrt(num);
         }
@@ -217,7 +219,7 @@ public class Calculator extends JFrame {
                 return 1;
             case 'x':
             case '/':
-            case 'm':
+            case '%':
                 return 2;
         }
         return -1;
@@ -236,7 +238,7 @@ public class Calculator extends JFrame {
                     throw new ArithmeticException("Can't divide by zero");
                 }
                 return a / b;
-            case 'm':
+            case '%':
                 return a % b;
         }
         return 0;
